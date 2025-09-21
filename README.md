@@ -67,7 +67,7 @@
   - `Status`: Статус (New, Processing, Cooking, Delivering, Delivered, Cancelled).
   - `TotalAmount`: Общая сумма.
   - `PaymentMethod`: Способ оплаты (Online, Cash).
-  - `DeliveryAddress`: Адрес доставки
+  - `AddressID`: Ссылка на адрес доставки
  
 - **Restaurant** (Ресторан):
   - `ID`: Уникальный идентификатор ресторана.
@@ -114,7 +114,6 @@
 
 - **Review** (Отзыв):
   - `ID`: Уникальный идентификатор отзыва.
-  - `CustomerID`: Ссылка на клиента.
   - `OrderID`: Ссылка на заказ.
   - `RestaurantID`: Ссылка на ресторан.
   - `Rating`: Рейтинг (1-5).
@@ -131,3 +130,17 @@
   - `Latitude`: Широта (для отображения на карте).
   - `Longitude`: Долгота (для отображения на карте).
  
+## 3. Связи между объектами для хранения данных.
+
+- **User -> Order**: Один пользователь (клиент) может иметь много заказов (1:N). Поле `CustomerID` в `Order` ссылается на `ID` в `User`.
+- **User -> Address**: Один пользователь может иметь несколько адресов (1:N). Поле `UserID` в `Address` ссылается на `ID` в `User`.
+- **Restaurant -> MenuItem**: Один ресторан может иметь много блюд (1:N). Поле `RestaurantID` в `MenuItem` ссылается на `ID` в `Restaurant`.
+- **Restaurant -> Order**: Один ресторан обрабатывает много заказов (1:N). Поле `RestaurantID` в `Order` ссылается на `ID` в `Restaurant`.
+- **Order -> OrderItem**: Один заказ содержит много элементов (1:N). Поле `OrderID` в `OrderItem` ссылается на `ID` в `Order`.
+- **MenuItem -> OrderItem**: Одно блюдо может быть в нескольких элементах заказа (1:N). Поле `MenuItemID` в `OrderItem` ссылается на `ID` в `MenuItem`.
+- **Order -> Payment**: Один заказ имеет один платёж (1:1). Поле `OrderID` в `Payment` ссылается на `ID` в `Order`.
+- **Order -> Review**: Один заказ может иметь один отзыв (1:1). Поле `OrderID` в `Review` ссылается на `ID` в `Order`.
+- **Restaurant -> Review**: Один ресторан может иметь много отзывов (1:N). Поле `RestaurantID` в `Review` ссылается на `ID` в `Restaurant`.
+- **Restaurant -> RestaurantImage**: Один ресторан может иметь много изображений (1:N). Поле `RestaurantID` в `RestaurantImage` ссылается на `ID` в `Restaurant`.
+- **User (Courier) -> Order**: Один курьер может доставлять много заказов (1:N). Поле `CourierID` в `Order` ссылается на `ID` в `User`.
+
