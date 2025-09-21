@@ -58,3 +58,14 @@
   - `Phone`: Номер телефона.
   - `Address`: Основной адрес (для клиентов).
  
+- **Order** (Заказ):
+  - `ID`: Уникальный идентификатор заказа.
+  - `CustomerID`: Ссылка на клиента.
+  - `RestaurantID`: Ссылка на ресторан.
+  - `CourierID`: Ссылка на курьера.
+  - `OrderDate`: Дата и время заказа.
+  - `Status`: Статус (New, Processing, Cooking, Delivering, Delivered, Cancelled).
+  - `TotalAmount`: Общая сумма.
+  - `PaymentMethod`: Способ оплаты (Online, Cash).
+  - `DeliveryAddress`: Адрес доставки
+ 
