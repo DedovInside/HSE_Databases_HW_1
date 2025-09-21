@@ -102,6 +102,15 @@
   - `Quantity`: Количество.
   - `UnitPrice`: Цена за единицу.
   - `Subtotal`: Итоговая стоимость (Quantity * UnitPrice).
+ 
+- **Payment** (Платёж):
+  - `ID`: Уникальный идентификатор платежа.
+  - `OrderID`: Ссылка на заказ.
+  - `Amount`: Сумма платежа.
+  - `Status`: Статус (Pending, Success, Failed).
+  - `Method`: Метод оплаты (Card, Cash).
+  - `PaymentDate`: Дата и время платежа.
+
 
 
 
