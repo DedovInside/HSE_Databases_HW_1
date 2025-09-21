@@ -143,4 +143,5 @@
 - **Restaurant -> Review**: Один ресторан может иметь много отзывов (1:N). Поле `RestaurantID` в `Review` ссылается на `ID` в `Restaurant`.
 - **Restaurant -> RestaurantImage**: Один ресторан может иметь много изображений (1:N). Поле `RestaurantID` в `RestaurantImage` ссылается на `ID` в `Restaurant`.
 - **User (Courier) -> Order**: Один курьер может доставлять много заказов (1:N). Поле `CourierID` в `Order` ссылается на `ID` в `User`.
+- **Order -> Address**: Один заказ связан с одним адресом доставки (1:1). Поле AddressID в Order ссылается на ID в Address.
 
